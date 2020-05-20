@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="49296ee9-bc68-4441-907a-3159725ef101" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1cAlUhjE9WYGMNEOWjh8NhYgoza" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Application" />
+      <module name="LighthouseRoute" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="49296ee9-bc68-4441-907a-3159725ef101" name="Default Changelist" comment="" />
+      <created>1589979295511</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589979295511</updated>
+      <workItem from="1589979297189" duration="7000" />
+      <workItem from="1589979317947" duration="9897000" />
+    </task>
+    <task id="LOCAL-00001" summary="start graphic">
+      <created>1589980334668</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589980334668</updated>
+    </task>
+    <task id="LOCAL-00002" summary="graphic">
+      <created>1589981308934</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589981308934</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add grid in main panel">
+      <created>1589982945715</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589982945715</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add grid in main panel">
+      <created>1589983098341</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589983098341</updated>
+    </task>
+    <task id="LOCAL-00005" summary="make map">
+      <created>1589983939356</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1589983939356</updated>
+    </task>
+    <task id="LOCAL-00006" summary="make map">
+      <created>1589984499038</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1589984499038</updated>
+    </task>
+    <task id="LOCAL-00007" summary="make map">
+      <created>1589985558421</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589985558421</updated>
+    </task>
+    <task id="LOCAL-00008" summary="some pixel art">
+      <created>1589990978979</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589990978979</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="start graphic" />
+    <MESSAGE value="graphic" />
+    <MESSAGE value="add grid in main panel" />
+    <MESSAGE value="make map" />
+    <MESSAGE value="some pixel art" />
+    <option name="LAST_COMMIT_MESSAGE" value="some pixel art" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1210" y="257" width="374" height="599" key="#com.intellij.ide.util.MemberChooser" timestamp="1589984425020">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="1210" y="257" width="374" height="599" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1589984425020" />
+    <state x="949" y="114" width="802" height="886" key="CommitChangelistDialog2" timestamp="1589990978836">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="949" y="114" width="802" height="886" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1589990978836" />
+    <state width="1878" height="277" key="GridCell.Tab.0.bottom" timestamp="1589990957806">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="277" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1589990957806" />
+    <state width="1878" height="277" key="GridCell.Tab.0.center" timestamp="1589990957806">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="277" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1589990957806" />
+    <state width="1878" height="277" key="GridCell.Tab.0.left" timestamp="1589990957806">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="277" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1589990957806" />
+    <state width="1878" height="277" key="GridCell.Tab.0.right" timestamp="1589990957806">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="277" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1589990957806" />
+    <state width="1878" height="342" key="GridCell.Tab.1.bottom" timestamp="1589990286819">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.1.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1589990286819" />
+    <state width="1878" height="342" key="GridCell.Tab.1.center" timestamp="1589990286818">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.1.center/0.27.1920.1053@0.27.1920.1053" timestamp="1589990286818" />
+    <state width="1878" height="342" key="GridCell.Tab.1.left" timestamp="1589990286818">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.1.left/0.27.1920.1053@0.27.1920.1053" timestamp="1589990286818" />
+    <state width="1878" height="342" key="GridCell.Tab.1.right" timestamp="1589990286818">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.1.right/0.27.1920.1053@0.27.1920.1053" timestamp="1589990286818" />
+    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1589990980286">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1589990980286" />
+    <state x="1196" y="469" width="411" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589984912380">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="1196" y="469" width="411" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1053@0.27.1920.1053" timestamp="1589984912380" />
+    <state x="1065" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1589984989053">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="1065" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1589984989053" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MainPanel.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
