@@ -1,11 +1,13 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class MainPanel extends JPanel {
+public class MainPanel extends JPanel implements ActionListener {
     private static final int PX = 30;
     private final int HEIGHT_PX_COUNT;
     private final int WIDTH_PX_COUNT;
@@ -18,8 +20,12 @@ public class MainPanel extends JPanel {
     private Image lighthouseImage;
     private Image aImage;
     private Image bImage;
+    private Image shipImage;
+
+    private Ship ship;
 
     public MainPanel(int screenWidth, int screenHeight) {
+        Timer timer = new Timer(400, this);
         WIDTH_PX_COUNT = screenWidth / PX;
         HEIGHT_PX_COUNT = screenHeight / PX;
         try {
@@ -28,16 +34,23 @@ public class MainPanel extends JPanel {
             lighthouseImage = ImageIO.read(new File("./res/lighthouse.gif"));
             aImage = ImageIO.read(new File("./res/a.gif"));
             bImage = ImageIO.read(new File("./res/b.gif"));
+            shipImage = ImageIO.read(new File("./res/ship.gif"));
         } catch (IOException e) {
             System.out.println("Image error");
         }
 
-        data = new Map().getData();
+        Map map = new Map();
+        data = map.getData();
         Y0_PX_NUMBER = (HEIGHT_PX_COUNT - data.size()) / 2;
         X0_PX_NUMBER = (WIDTH_PX_COUNT - data.get(0).size()) / 2;
+
+
+        ship = new Ship(map.getAXPoint(), map.getAYPoint());
+        timer.start();
     }
 
     protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
         for (int i = 0; i < data.size(); i++) {
             for (int j = 0; j < data.get(i).size(); j++) {
                 Image img = null;
@@ -61,6 +74,24 @@ public class MainPanel extends JPanel {
                 g.drawImage(img, X0_PX_NUMBER * PX + j * PX, Y0_PX_NUMBER * PX + i * PX, PX, PX, this);
             }
         }
+        g.drawImage(shipImage, X0_PX_NUMBER * PX + ship.getX() * PX, Y0_PX_NUMBER * PX + ship.getY() * PX, PX, PX, this);
+
     }
 
+    public void moveShip() {
+        for (int i = 0; i < 5; i++) {
+            ship.moveRight();
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ship.moveRight();
+        repaint();
+    }
 }

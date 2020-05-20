@@ -3,16 +3,14 @@ import java.awt.*;
 
 public class Application {
     public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            JFrame frame = new MainFrame();
-            frame.setTitle("Lighthouse Route");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setVisible(true);
-            frame.setResizable(false);
-        });
+
+        JFrame frame = new MainFrame();
+        frame.setTitle("Lighthouse Route");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setResizable(false);
+
     }
-
-
 }
 
 class MainFrame extends JFrame {

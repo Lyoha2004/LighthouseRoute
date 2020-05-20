@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,6 +13,27 @@ public class Map {
     static final int LIGHTHOUSE = 2;
     static final int POINT_A = 3;
     static final int POINT_B = 4;
+
+    private int aXPoint;
+    private int aYPoint;
+    private int bXPoint;
+    private int bYPoint;
+
+    public int getAXPoint() {
+        return aXPoint;
+    }
+
+    public int getAYPoint() {
+        return aYPoint;
+    }
+
+    public int getBXPoint() {
+        return bXPoint;
+    }
+
+    public int getBYPoint() {
+        return bYPoint;
+    }
 
     public Map() {
         File mapFile = new File("map.txt");
@@ -26,8 +48,19 @@ public class Map {
         data = new ArrayList<>();
 
         int i = 0;
+        int length = 0;
+        int as = 0;
+        int bs = 0;
         while (sc.hasNextLine()) {
             String s = sc.nextLine();
+            try {
+                if (i > 0 && s.length() != length) {
+                    throw new IOException();
+                }
+            } catch (IOException e) {
+                System.err.println("Wrong map! Field should be rectangular!");
+                System.exit(0);
+            }
             data.add(new ArrayList<>());
             for (int k = 0; k < s.length(); k++) {
                 char mapObject = s.charAt(k);
@@ -43,15 +76,30 @@ public class Map {
                         dataObject = LIGHTHOUSE;
                         break;
                     case 'A':
+                        aXPoint = k;
+                        aYPoint = i;
+                        as++;
                         dataObject = POINT_A;
                         break;
                     case 'B':
+                        bYPoint = k;
+                        bXPoint = i;
+                        bs++;
                         dataObject = POINT_B;
                         break;
                 }
                 data.get(i).add(dataObject);
             }
             i++;
+            length = s.length();
+        }
+
+        try {
+            if (as != 1 || bs != 1) {
+                throw new IOException();
+            }
+        } catch (IOException e) {
+            System.err.println("Wrong map! There should be ane A and one B");
         }
     }
 
