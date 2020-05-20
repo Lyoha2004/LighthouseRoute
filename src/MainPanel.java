@@ -5,10 +5,13 @@ public class MainPanel extends JPanel {
     private static final int PX = 14;
     private int HEIGHT_PX_COUNT;
     private int WIDTH_PX_COUNT;
+    private Map map;
 
     public MainPanel(int screenWidth, int screenHeight) {
         WIDTH_PX_COUNT = screenWidth / PX;
         HEIGHT_PX_COUNT = screenHeight / PX;
+
+        map = new Map();
     }
 
     protected void paintComponent(Graphics g) {
