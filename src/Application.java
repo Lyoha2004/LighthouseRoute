@@ -5,7 +5,7 @@ public class Application {
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             JFrame frame = new MainFrame();
-            frame.setTitle("Lighthouse route");
+            frame.setTitle("Lighthouse Route");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setVisible(true);
             frame.setResizable(false);
@@ -20,13 +20,13 @@ class MainFrame extends JFrame {
     public MainFrame() {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
-        int screenHeight = screenSize.height;
-        int screenWidth = screenSize.width;
+        int screenHeight = screenSize.height / 2;
+        int screenWidth = screenSize.width / 2;
         panel = new MainPanel(screenWidth, screenHeight);
         add(panel);
         pack();
 
-        setSize(screenWidth / 2, screenHeight / 2);
+        setSize(screenWidth, screenHeight);
         setLocationByPlatform(true);
     }
 }
