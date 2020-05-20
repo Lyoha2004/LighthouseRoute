@@ -8,6 +8,7 @@ public class Application {
             frame.setTitle("Lighthouse route");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setVisible(true);
+            frame.setResizable(false);
         });
     }
 
