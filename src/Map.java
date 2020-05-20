@@ -8,10 +8,10 @@ public class Map {
     private List<List<Integer>> data;
 
     static final int WATER = 0;
-    static final int GROUND = 0;
-    static final int LIGHTHOUSE = 0;
-    static final int POINT_A = 0;
-    static final int POINT_B = 0;
+    static final int GROUND = 1;
+    static final int LIGHTHOUSE = 2;
+    static final int POINT_A = 3;
+    static final int POINT_B = 4;
 
     public Map() {
         File mapFile = new File("map.txt");
@@ -33,7 +33,7 @@ public class Map {
                 char mapObject = s.charAt(k);
                 int dataObject = 0;
                 switch (mapObject) {
-                    case ' ':
+                    case '~':
                         dataObject = WATER;
                         break;
                     case '*':
@@ -53,6 +53,13 @@ public class Map {
             }
 
             i++;
+        }
+
+        for (int u = 0; u < data.size(); u++) {
+            for (int v = 0; v < data.get(u).size(); v++) {
+                System.out.print(data.get(u).get(v));
+            }
+            System.out.println();
         }
     }
 
