@@ -24,7 +24,7 @@ public class MainPanel extends JPanel {
                 g.drawRect(i * PX, j * PX, PX, PX);
             }
         }
-        g.fillRect(10 * PX, 10 * PX, PX, PX);
+
     }
 
 }

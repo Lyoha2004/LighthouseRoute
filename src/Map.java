@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class Map {
     private List<List<Integer>> data;
 
-    private static final int WATER = 0;
-    private static final int GROUND = 0;
-    private static final int LIGHTHOUSE = 0;
-    private static final int POINT_A = 0;
-    private static final int POINT_B = 0;
+    static final int WATER = 0;
+    static final int GROUND = 0;
+    static final int LIGHTHOUSE = 0;
+    static final int POINT_A = 0;
+    static final int POINT_B = 0;
 
     public Map() {
         File mapFile = new File("map.txt");
@@ -29,7 +29,7 @@ public class Map {
         while (sc.hasNextLine()) {
             String s = sc.nextLine();
             data.add(new ArrayList<>());
-            for (int k = 0; k < s.length(); i++) {
+            for (int k = 0; k < s.length(); k++) {
                 char mapObject = s.charAt(k);
                 int dataObject = 0;
                 switch (mapObject) {
@@ -38,8 +38,25 @@ public class Map {
                         break;
                     case '*':
                         dataObject = GROUND;
+                        break;
+                    case 'L':
+                        dataObject = LIGHTHOUSE;
+                        break;
+                    case 'A':
+                        dataObject = POINT_A;
+                        break;
+                    case 'B':
+                        dataObject = POINT_B;
+                        break;
                 }
+                data.get(i).add(dataObject);
             }
+
+            i++;
         }
+    }
+
+    public List<List<Integer>> getData() {
+        return data;
     }
 }
