@@ -21,7 +21,7 @@ class MainFrame extends JFrame {
         Dimension screenSize = kit.getScreenSize();
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
-        panel = new MainPanel();
+        panel = new MainPanel(screenWidth, screenHeight);
         add(panel);
         pack();
 
