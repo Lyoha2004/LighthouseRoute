@@ -15,11 +15,15 @@ public class Application {
 }
 
 class MainFrame extends JFrame {
+    JPanel panel;
     public MainFrame() {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
+        panel = new MainPanel();
+        add(panel);
+        pack();
 
         setSize(screenWidth / 2, screenHeight / 2);
         setLocationByPlatform(true);
