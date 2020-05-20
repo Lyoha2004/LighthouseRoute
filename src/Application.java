@@ -1,18 +1,27 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Application {
-    private static final int DEFAULT_WIDTH = 202;
-    private static final int DEFAULT_HEIGHT = 340;
-    MainPanel mainPanel = new MainPanel();
-
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Lighthouse route");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(mainPanel);
-        frame.pack();
-        frame.setLocationByPlatform(true);
-        frame.setVisible(true);
+        EventQueue.invokeLater(() -> {
+            JFrame frame = new MainFrame();
+            frame.setTitle("Lighthouse route");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
+        });
     }
 
 
+}
+
+class MainFrame extends JFrame {
+    public MainFrame() {
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = kit.getScreenSize();
+        int screenHeight = screenSize.height;
+        int screenWidth = screenSize.width;
+
+        setSize(screenWidth / 2, screenHeight / 2);
+        setLocationByPlatform(true);
+    }
 }
