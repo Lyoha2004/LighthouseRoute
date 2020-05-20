@@ -54,13 +54,6 @@ public class Map {
 
             i++;
         }
-
-        for (int u = 0; u < data.size(); u++) {
-            for (int v = 0; v < data.get(u).size(); v++) {
-                System.out.print(data.get(u).get(v));
-            }
-            System.out.println();
-        }
     }
 
     public List<List<Integer>> getData() {
