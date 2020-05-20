@@ -15,6 +15,7 @@ public class MainPanel extends JPanel {
 
     private Image waterImage;
     private Image groundImage;
+    private Image lighthouseImage;
 
     public MainPanel(int screenWidth, int screenHeight) {
         WIDTH_PX_COUNT = screenWidth / PX;
@@ -22,6 +23,7 @@ public class MainPanel extends JPanel {
         try {
             waterImage = ImageIO.read(new File("./res/water.gif"));
             groundImage = ImageIO.read(new File("./res/grass.gif"));
+            lighthouseImage = ImageIO.read(new File("./res/lighthouse.gif"));
         } catch (IOException e) {
             System.out.println("Image error");
         }
@@ -46,7 +48,8 @@ public class MainPanel extends JPanel {
                         img = groundImage;
                         break;
                     case Map.LIGHTHOUSE:
-                        g.setColor(Color.CYAN);
+//                        g.setColor(Color.CYAN);
+                        img = lighthouseImage;
                         break;
                     case Map.POINT_A:
                         g.setColor(Color.GREEN);
