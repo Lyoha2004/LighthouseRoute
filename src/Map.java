@@ -51,7 +51,6 @@ public class Map {
                 }
                 data.get(i).add(dataObject);
             }
-
             i++;
         }
     }

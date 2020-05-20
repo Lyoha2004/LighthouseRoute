@@ -7,10 +7,10 @@ import java.util.List;
 
 public class MainPanel extends JPanel {
     private static final int PX = 30;
-    private int HEIGHT_PX_COUNT;
-    private int WIDTH_PX_COUNT;
-    private int Y0_PX_NUMBER;
-    private int X0_PX_NUMBER;
+    private final int HEIGHT_PX_COUNT;
+    private final int WIDTH_PX_COUNT;
+    private final int Y0_PX_NUMBER;
+    private final int X0_PX_NUMBER;
     private List<List<Integer>> data;
 
     private Image waterImage;
