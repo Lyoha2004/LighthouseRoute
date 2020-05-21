@@ -25,7 +25,12 @@ public class Route {
     }
 
     private List<Coordinates> findAllTangent(Coordinates m, Coordinates o) {
-        Coordinates shift = new Coordinates(m.x + (o.x - m.x) / 2, m.y + (o.y - m.y) / 2);
-
+        Coordinates mid = new Coordinates(m.x + (o.x - m.x) / 2, m.y + (o.y - m.y) / 2);
+        Coordinates shift = new Coordinates(o.x, o.y);
+        int x2 = (mid.x - o.x);
+        int y2 = (mid.y - o.y);
+        int A = -2 * x2;
+        int B = -2 * y2;
+        int C = x2^2 + y2^2;
     }
 }
