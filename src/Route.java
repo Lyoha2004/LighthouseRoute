@@ -5,6 +5,7 @@ public class Route {
     private Coordinates b;
     private List<Coordinates> lighthouses;
     private List<Coordinates> route;
+    private int r = 2;
 
     public Route() {
         Map map = new Map();
@@ -16,10 +17,14 @@ public class Route {
     }
 
     private void findRoute() {
-        System.out.println(a);
-        System.out.println(b);
-        for (Coordinates i : lighthouses) {
-            System.out.println(i);
-        }
+
+    }
+
+    private void makeCircle(Coordinates lighthouse) {
+
+    }
+
+    private List<Coordinates> findAllTangent(Coordinates m, Coordinates o) {
+
     }
 }
