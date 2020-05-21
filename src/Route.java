@@ -23,7 +23,7 @@ public class Route {
         // Test
         Coordinates lighthouse = lighthouses.get(4);
         System.out.println("Lighthouse: " + lighthouse);
-        List<Coordinates> dots = makeLine(a, findAllTangent(a, lighthouse).get(0));
+        List<Coordinates> dots = makeLine(a, findAllTangent(a, lighthouse).get(1));
         for (Coordinates dot : dots) {
             System.out.println(dot);
         }

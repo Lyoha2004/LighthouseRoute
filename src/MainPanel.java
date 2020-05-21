@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainPanel extends JPanel implements ActionListener {
@@ -16,6 +17,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private List<List<Integer>> data;
 
     private Image waterImage;
+    private List<Image> waterImages;
     private Image groundImage;
     private Image lighthouseImage;
     private Image aImage;
@@ -31,17 +33,23 @@ public class MainPanel extends JPanel implements ActionListener {
     private List<Coordinates> route;
 
     public MainPanel(int screenWidth, int screenHeight) {
-        Timer timer = new Timer(400, this);
+        Timer timer = new Timer(50, this);
+        waterImages = new ArrayList<>();
         WIDTH_PX_COUNT = screenWidth / PX;
         HEIGHT_PX_COUNT = screenHeight / PX;
         try {
-            waterImage = ImageIO.read(new File("./res/water.gif"));
+            waterImages.add(ImageIO.read(new File("./res/water_4.gif")));
+            waterImages.add(ImageIO.read(new File("./res/water_3.gif")));
+            waterImages.add(ImageIO.read(new File("./res/water_2.gif")));
+            waterImages.add(ImageIO.read(new File("./res/water.gif")));
             groundImage = ImageIO.read(new File("./res/grass.gif"));
             lighthouseImage = ImageIO.read(new File("./res/lighthouse.gif"));
             aImage = ImageIO.read(new File("./res/a.gif"));
             bImage = ImageIO.read(new File("./res/b.gif"));
-            shipRightImage = ImageIO.read(new File("./res/advanced_ship.png"));
+            shipRightImage = ImageIO.read(new File("./res/advanced_ship.gif"));
             shipLeftImage = ImageIO.read(new File("./res/advanced_ship_left.png"));
+
+            waterImage = waterImages.get(0);
             shipImage = shipRightImage;
         } catch (IOException e) {
             System.out.println("Image error");
@@ -84,32 +92,50 @@ public class MainPanel extends JPanel implements ActionListener {
                 g.drawImage(img, X0_PX_NUMBER * PX + j * PX, Y0_PX_NUMBER * PX + i * PX, PX, PX, this);
             }
         }
-        g.drawImage(shipImage, X0_PX_NUMBER * PX + ship.getX() * PX, Y0_PX_NUMBER * PX + ship.getY() * PX, PX, PX, this);
+        g.drawImage(shipImage, (int)(X0_PX_NUMBER * PX + ship.getX() * PX), (int)(Y0_PX_NUMBER * PX + ship.getY() * PX), PX, PX, this);
 
     }
 
-    public void moveShip() {
-        for (int i = 0; i < 5; i++) {
-            ship.moveRight();
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+    public void move() {
+
     }
 
     private int direction = 1;
     private int i = 0;
+    private int j = 1;
+    private int waterNum = 0;
+    private double speed = (double)PX / 20;
+    private final int waterSpeed = 6;
+    private int k = 0;
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ship.setX(route.get(i).x);
-        ship.setY(route.get(i).y);
+        ship.setX(route.get(i).x + (speed * j * (getNextPoint().x - route.get(i).x)) / PX);
+        ship.setY(route.get(i).y + (speed * j * (getNextPoint().y - route.get(i).y)) / PX);
+        j++;
+        k++;
+
+        if (j == 20) {
+            j = 0;
+        }
+
+        if (k == waterSpeed) {
+            k = 0;
+            waterNum++;
+            if (waterNum == 4)
+                waterNum = 0;
+            waterImage = waterImages.get(waterNum);
+        }
 
         repaint();
-        i += direction;
-        if (i == route.size() - 1 || i == 0)
-            direction *= -1;
+        if (j == 0) {
+            i += direction;
+            if (i == route.size() - 1 || i == 0)
+                direction *= -1;
+        }
+    }
+
+    public Coordinates getNextPoint() {
+        return route.get(i + direction);
     }
 }
