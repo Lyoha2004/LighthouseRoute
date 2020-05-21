@@ -21,7 +21,8 @@ public class Route {
         findRoute();
 
         // Test
-        Coordinates lighthouse = lighthouses.get(0);
+        Coordinates lighthouse = lighthouses.get(3);
+        System.out.println("Lighthouse: " + lighthouse);
         List<Coordinates> dots = makeLine(a, findAllTangent(a, lighthouse).get(0));
         for (Coordinates dot : dots) {
             System.out.println(dot);
@@ -70,6 +71,7 @@ public class Route {
         int deltaY = b.y - a.y;
         int deltaX = b.x - a.x;
         float k = (float) deltaY / deltaX;
+        float kTurned = (float) deltaX / deltaY;
 
         List<Coordinates> dots = new ArrayList<>();
 
@@ -85,12 +87,20 @@ public class Route {
         }
 
         dots.add(a);
+
         int x = a.x;
         int y = a.y;
         while (x != b.x) {
             x++;
             y = Math.round(k * x) + a.y;
-            dots.add(new Coordinates(x, y));
+            int prev_y = dots.get(dots.size()-1).y;
+            if (y == prev_y) {
+                dots.add(new Coordinates(x, y));
+            } else {
+                for (int i = prev_y + 1; i <= y; i++) {
+                    dots.add(new Coordinates(x, i));
+                }
+            }
         }
 
         if (turned)
