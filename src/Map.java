@@ -68,7 +68,7 @@ public class Map {
                         dataObject = GROUND;
                         break;
                     case 'L':
-                        lighthouses.add(new Coordinates(i, k));
+                        lighthouses.add(new Coordinates(k, i));
                         dataObject = LIGHTHOUSE;
                         break;
                     case 'A':
