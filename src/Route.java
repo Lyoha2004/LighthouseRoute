@@ -50,8 +50,8 @@ public class Route {
         int y0 = -(B*C)/(A^2 + B^2);//координаты y ближайшей к центру окружности точки прямой
         int d =(int)Math.sqrt(4 - C^2/(A^2+B^2)^2);//расстояние от (х0, у0) до точек пересечения
         int coef = (int)(d/Math.sqrt(A^2+B^2));//коэффициент, на который нужно умножить вектор (-В, А) для того, чтобы его конец был в точке пересечения
-        Coordinates point1 = new Coordinates(x0 + B*coef,x0 - A*coef);
-        Coordinates point2 = new Coordinates(x0 - B*coef,x0 + A*coef);
+        Coordinates point1 = new Coordinates(x0 + B*coef + o.x,x0 - A*coef + o.y);
+        Coordinates point2 = new Coordinates(x0 - B*coef + o.x,x0 + A*coef + o.y);
         List<Coordinates> result = new ArrayList<>();
         result.add(point1);
         result.add(point2);
