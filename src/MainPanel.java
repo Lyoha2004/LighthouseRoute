@@ -21,6 +21,10 @@ public class MainPanel extends JPanel implements ActionListener {
     private Image aImage;
     private Image bImage;
     private Image shipImage;
+    private Image shipRightImage;
+    private Image shipLeftImage;
+    private Image shipUpImage;
+    private Image shipDownImage;
 
     private Ship ship;
     private Map map;
@@ -36,7 +40,9 @@ public class MainPanel extends JPanel implements ActionListener {
             lighthouseImage = ImageIO.read(new File("./res/lighthouse.gif"));
             aImage = ImageIO.read(new File("./res/a.gif"));
             bImage = ImageIO.read(new File("./res/b.gif"));
-            shipImage = ImageIO.read(new File("./res/advanced_ship.png"));
+            shipRightImage = ImageIO.read(new File("./res/advanced_ship.png"));
+            shipLeftImage = ImageIO.read(new File("./res/advanced_ship_left.png"));
+            shipImage = shipRightImage;
         } catch (IOException e) {
             System.out.println("Image error");
         }
@@ -100,6 +106,7 @@ public class MainPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         ship.setX(route.get(i).x);
         ship.setY(route.get(i).y);
+
         repaint();
         i += direction;
         if (i == route.size() - 1 || i == 0)
