@@ -21,7 +21,8 @@ public class Route {
         findRoute();
 
         // Test
-        List<Coordinates> dots = makeLine(a, b);
+        Coordinates lighthouse = lighthouses.get(0);
+        List<Coordinates> dots = makeLine(a, findAllTangent(a, lighthouse).get(0));
         for (Coordinates dot : dots) {
             System.out.println(dot);
         }
