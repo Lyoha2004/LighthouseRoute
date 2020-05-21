@@ -21,9 +21,9 @@ public class Route {
         findRoute();
 
         // Test
-        Coordinates lighthouse = lighthouses.get(1);
+        Coordinates lighthouse = lighthouses.get(4);
         System.out.println("Lighthouse: " + lighthouse);
-        List<Coordinates> dots = makeLine(a, findAllTangent(a, lighthouse).get(1));
+        List<Coordinates> dots = makeLine(a, findAllTangent(a, lighthouse).get(0));
         for (Coordinates dot : dots) {
             System.out.println(dot);
         }
@@ -51,10 +51,12 @@ public class Route {
         //радиус = 2
         double x0 = -(A*C)/(A * A + B * B);//координаты x ближайшей к центру окружности точки прямой
         double y0 = -(B*C)/(A * A + B * B);//координаты y ближайшей к центру окружности точки прямой
-        double d = Math.sqrt(4 - C * C / Math.pow(A * A + B * B, 2));//расстояние от (х0, у0) до точек пересечения
-        double coef = (d/Math.sqrt(A * A + B * B));//коэффициент, на который нужно умножить вектор (-В, А) для того, чтобы его конец был в точке пересечения
-        Coordinates point1 = new Coordinates(Math.round((float)(x0 + B*coef + shift.x)),Math.round((float)(x0 - A*coef + shift.y)));
-        Coordinates point2 = new Coordinates(Math.round((float)(x0 - B*coef + shift.x)),Math.round((float)(x0 + A*coef + shift.y)));
+        double d = Math.sqrt(4 - C * C / (A * A + B * B));//расстояние от (х0, у0) до точек пересечения
+        double coef = (d /Math.sqrt(A * A + B * B));//коэффициент, на который нужно умножить вектор (-В, А) для того, чтобы его конец был в точке пересечения
+        Coordinates point1 = new Coordinates(Math.round((float)(x0 + B*coef + shift.x)),Math.round((float)(y0 - A*coef + shift.y)));
+        Coordinates point2 = new Coordinates(Math.round((float)(x0 - B*coef + shift.x)),Math.round((float)(y0 + A*coef + shift.y)));
+        double xPoint2 = (x0 - B*coef + shift.x);
+        double yPoint2 = (y0 + A*coef + shift.y);
         List<Coordinates> result = new ArrayList<>();
         result.add(point1);
         result.add(point2);
@@ -105,7 +107,7 @@ public class Route {
                         dots.add(new Coordinates(x, i));
                     }
                 } else {
-                    for (int i = y + 1; i <= prev_y; i++) {
+                    for (int i = prev_y - 1; i >= y; i--) {
                         dots.add(new Coordinates(x, i));
                     }
                 }
