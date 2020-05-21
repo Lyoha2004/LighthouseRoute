@@ -22,8 +22,8 @@ public class Route {
 
         // Test
         List<Coordinates> dots = makeLine(a, b);
-        for (int i = 0; i < dots.size(); i++) {
-            System.out.println(dots.get(i));
+        for (Coordinates dot : dots) {
+            System.out.println(dot);
         }
         route = dots;
     }
@@ -44,9 +44,18 @@ public class Route {
         int A = -2 * x2;
         int B = -2 * y2;
         int C = x2^2 + y2^2;
-
-        return null;
-    }
+        //радиус = 2
+        int x0 = -(A*C)/(A^2 + B^2);//координаты x ближайшей к центру окружности точки прямой
+        int y0 = -(B*C)/(A^2 + B^2);//координаты y ближайшей к центру окружности точки прямой
+        int d =(int)Math.sqrt(4 - C^2/(A^2+B^2)^2);//расстояние от (х0, у0) до точек пересечения
+        int coef = (int)(d/Math.sqrt(A^2+B^2));//коэффициент, на который нужно умножить вектор (-В, А) для того, чтобы его конец был в точке пересечения
+        Coordinates point1 = new Coordinates(x0 + B*coef,x0 - A*coef);
+        Coordinates point2 = new Coordinates(x0 - B*coef,x0 + A*coef);
+        List<Coordinates> result = new ArrayList<>();
+        result.add(point1);
+        result.add(point2);
+        return result;
+}
 
     private List<Coordinates> makeLine(Coordinates a, Coordinates b) {
         boolean turned = false;
