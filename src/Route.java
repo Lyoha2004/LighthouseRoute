@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Route {
@@ -7,6 +8,10 @@ public class Route {
     private List<Coordinates> route;
     private int r = 2;
 
+    public List<Coordinates> getRoute() {
+        return route;
+    }
+
     public Route() {
         Map map = new Map();
         a = map.getA();
@@ -14,6 +19,13 @@ public class Route {
         lighthouses = map.getLighthouses();
 
         findRoute();
+
+        // Test
+        List<Coordinates> dots = makeLine(a, b);
+        for (int i = 0; i < dots.size(); i++) {
+            System.out.println(dots.get(i));
+        }
+        route = dots;
     }
 
     private void findRoute() {
@@ -32,7 +44,57 @@ public class Route {
         int A = -2 * x2;
         int B = -2 * y2;
         int C = x2^2 + y2^2;
-        //радиус = 2
-        int x0 = -(A*C)/(A^2 + B^2);//координаты ближайшей к центру окружности точки прямой
+
+        return null;
+    }
+
+    private List<Coordinates> makeLine(Coordinates a, Coordinates b) {
+        boolean turned = false;
+        if (a.x > b.x || (a.x == b.x && b.y < a.y)) {
+            Coordinates c = new Coordinates(a.x, a.y);
+            a = new Coordinates(b.x, b.y);
+            b = new Coordinates(c.x, c.y);
+            turned = true;
+        }
+
+        int deltaY = b.y - a.y;
+        int deltaX = b.x - a.x;
+        float k = (float) deltaY / deltaX;
+
+        List<Coordinates> dots = new ArrayList<>();
+
+        if (deltaX == 0) {
+            dots = new ArrayList<>();
+            int y = a.y;
+            for (int i = 0; i <= b.y - a.y; i++) {
+                dots.add(new Coordinates(a.x, y + i));
+            }
+            if (turned)
+                dots = turnList(dots);
+            return dots;
+        }
+
+        dots.add(a);
+        int x = a.x;
+        int y = a.y;
+        while (x != b.x) {
+            x++;
+            y = Math.round(k * x) + a.y;
+            dots.add(new Coordinates(x, y));
+        }
+
+        if (turned)
+            dots = turnList(dots);
+
+        return dots;
+    }
+
+    private List<Coordinates> turnList(List<Coordinates> list) {
+        List<Coordinates> copy = new ArrayList<>();
+        for (int i = list.size() - 1; i >= 0; i--) {
+            copy.add(new Coordinates(list.get(i).x, list.get(i).y));
+        }
+
+        return copy;
     }
 }

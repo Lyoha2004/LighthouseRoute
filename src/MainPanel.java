@@ -21,10 +21,14 @@ public class MainPanel extends JPanel implements ActionListener {
     private Image aImage;
     private Image bImage;
     private Image shipImage;
+    private Image shipRightImage;
+    private Image shipLeftImage;
+    private Image shipUpImage;
+    private Image shipDownImage;
 
     private Ship ship;
     private Map map;
-    private Route route;
+    private List<Coordinates> route;
 
     public MainPanel(int screenWidth, int screenHeight) {
         Timer timer = new Timer(400, this);
@@ -36,13 +40,15 @@ public class MainPanel extends JPanel implements ActionListener {
             lighthouseImage = ImageIO.read(new File("./res/lighthouse.gif"));
             aImage = ImageIO.read(new File("./res/a.gif"));
             bImage = ImageIO.read(new File("./res/b.gif"));
-            shipImage = ImageIO.read(new File("./res/advanced_ship.png"));
+            shipRightImage = ImageIO.read(new File("./res/advanced_ship.png"));
+            shipLeftImage = ImageIO.read(new File("./res/advanced_ship_left.png"));
+            shipImage = shipRightImage;
         } catch (IOException e) {
             System.out.println("Image error");
         }
 
         map = new Map();
-        route = new Route();
+        route = new Route().getRoute();
 
         data = map.getData();
         Y0_PX_NUMBER = (HEIGHT_PX_COUNT - data.size()) / 2;
@@ -93,16 +99,17 @@ public class MainPanel extends JPanel implements ActionListener {
         }
     }
 
-    private boolean direction = true;
+    private int direction = 1;
+    private int i = 0;
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (direction)
-            ship.moveRight();
-        else
-            ship.moveLeft();
+        ship.setX(route.get(i).x);
+        ship.setY(route.get(i).y);
 
-        if (ship.getX() == (map.getData().get(0).size() - 1) || ship.getX() == 0)
-            direction = !direction;
         repaint();
+        i += direction;
+        if (i == route.size() - 1 || i == 0)
+            direction *= -1;
     }
 }
