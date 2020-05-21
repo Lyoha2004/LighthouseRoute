@@ -24,7 +24,7 @@ public class MainPanel extends JPanel implements ActionListener {
 
     private Ship ship;
     private Map map;
-    private Route route;
+    private List<Coordinates> route;
 
     public MainPanel(int screenWidth, int screenHeight) {
         Timer timer = new Timer(400, this);
@@ -42,7 +42,7 @@ public class MainPanel extends JPanel implements ActionListener {
         }
 
         map = new Map();
-        route = new Route();
+        route = new Route().getRoute();
 
         data = map.getData();
         Y0_PX_NUMBER = (HEIGHT_PX_COUNT - data.size()) / 2;
@@ -93,16 +93,16 @@ public class MainPanel extends JPanel implements ActionListener {
         }
     }
 
-    private boolean direction = true;
+    private int direction = 1;
+    private int i = 0;
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (direction)
-            ship.moveRight();
-        else
-            ship.moveLeft();
-
-        if (ship.getX() == (map.getData().get(0).size() - 1) || ship.getX() == 0)
-            direction = !direction;
+        ship.setX(route.get(i).x);
+        ship.setY(route.get(i).y);
         repaint();
+        i += direction;
+        if (i == route.size() - 1 || i == 0)
+            direction *= -1;
     }
 }

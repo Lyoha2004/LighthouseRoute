@@ -8,6 +8,10 @@ public class Route {
     private List<Coordinates> route;
     private int r = 2;
 
+    public List<Coordinates> getRoute() {
+        return route;
+    }
+
     public Route() {
         Map map = new Map();
         a = map.getA();
@@ -21,6 +25,7 @@ public class Route {
         for (int i = 0; i < dots.size(); i++) {
             System.out.println(dots.get(i));
         }
+        route = dots;
     }
 
     private void findRoute() {
