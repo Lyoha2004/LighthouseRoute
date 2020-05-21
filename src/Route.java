@@ -16,6 +16,10 @@ public class Route {
     }
 
     private void findRoute() {
-
+        System.out.println(a);
+        System.out.println(b);
+        for (Coordinates i : lighthouses) {
+            System.out.println(i);
+        }
     }
 }

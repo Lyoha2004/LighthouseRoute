@@ -23,6 +23,8 @@ public class MainPanel extends JPanel implements ActionListener {
     private Image shipImage;
 
     private Ship ship;
+    private Map map;
+    private Route route;
 
     public MainPanel(int screenWidth, int screenHeight) {
         Timer timer = new Timer(400, this);
@@ -34,12 +36,14 @@ public class MainPanel extends JPanel implements ActionListener {
             lighthouseImage = ImageIO.read(new File("./res/lighthouse.gif"));
             aImage = ImageIO.read(new File("./res/a.gif"));
             bImage = ImageIO.read(new File("./res/b.gif"));
-            shipImage = ImageIO.read(new File("./res/ship.gif"));
+            shipImage = ImageIO.read(new File("./res/advanced_ship.png"));
         } catch (IOException e) {
             System.out.println("Image error");
         }
 
-        Map map = new Map();
+        map = new Map();
+        route = new Route();
+
         data = map.getData();
         Y0_PX_NUMBER = (HEIGHT_PX_COUNT - data.size()) / 2;
         X0_PX_NUMBER = (WIDTH_PX_COUNT - data.get(0).size()) / 2;
@@ -97,7 +101,7 @@ public class MainPanel extends JPanel implements ActionListener {
         else
             ship.moveLeft();
 
-        if (ship.getX() == WIDTH_PX_COUNT)
+        if (ship.getX() == (map.getData().get(0).size() - 1) || ship.getX() == 0)
             direction = !direction;
         repaint();
     }
