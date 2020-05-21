@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class MainPanel extends JPanel implements ActionListener {
-    private static final int PX = 30;
+    private static final int PX = 50;
     private final int HEIGHT_PX_COUNT;
     private final int WIDTH_PX_COUNT;
     private final int Y0_PX_NUMBER;
@@ -45,7 +45,7 @@ public class MainPanel extends JPanel implements ActionListener {
         X0_PX_NUMBER = (WIDTH_PX_COUNT - data.get(0).size()) / 2;
 
 
-        ship = new Ship(map.getAXPoint(), map.getAYPoint());
+        ship = new Ship(map.getA().x, map.getA().y);
         timer.start();
     }
 
@@ -89,9 +89,16 @@ public class MainPanel extends JPanel implements ActionListener {
         }
     }
 
+    private boolean direction = true;
     @Override
     public void actionPerformed(ActionEvent e) {
-        ship.moveRight();
+        if (direction)
+            ship.moveRight();
+        else
+            ship.moveLeft();
+
+        if (ship.getX() == WIDTH_PX_COUNT)
+            direction = !direction;
         repaint();
     }
 }

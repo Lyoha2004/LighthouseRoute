@@ -18,8 +18,8 @@ class MainFrame extends JFrame {
     public MainFrame() {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
-        int screenHeight = screenSize.height / 2;
-        int screenWidth = screenSize.width / 2;
+        int screenHeight = screenSize.height;
+        int screenWidth = screenSize.width;
         panel = new MainPanel(screenWidth, screenHeight);
         add(panel);
         pack();

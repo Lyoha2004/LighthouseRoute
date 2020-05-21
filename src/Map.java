@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 public class Map {
     private List<List<Integer>> data;
+    private List<Coordinates> lighthouses;
+    private Coordinates a;
+    private Coordinates b;
 
     static final int WATER = 0;
     static final int GROUND = 1;
@@ -14,25 +17,16 @@ public class Map {
     static final int POINT_A = 3;
     static final int POINT_B = 4;
 
-    private int aXPoint;
-    private int aYPoint;
-    private int bXPoint;
-    private int bYPoint;
-
-    public int getAXPoint() {
-        return aXPoint;
+    public List<Coordinates> getLighthouses() {
+        return lighthouses;
     }
 
-    public int getAYPoint() {
-        return aYPoint;
+    public Coordinates getA() {
+        return a;
     }
 
-    public int getBXPoint() {
-        return bXPoint;
-    }
-
-    public int getBYPoint() {
-        return bYPoint;
+    public Coordinates getB() {
+        return b;
     }
 
     public Map() {
@@ -46,6 +40,7 @@ public class Map {
         }
 
         data = new ArrayList<>();
+        lighthouses = new ArrayList<>();
 
         int i = 0;
         int length = 0;
@@ -73,17 +68,16 @@ public class Map {
                         dataObject = GROUND;
                         break;
                     case 'L':
+                        lighthouses.add(new Coordinates(i, k));
                         dataObject = LIGHTHOUSE;
                         break;
                     case 'A':
-                        aXPoint = k;
-                        aYPoint = i;
+                        a = new Coordinates(k, i);
                         as++;
                         dataObject = POINT_A;
                         break;
                     case 'B':
-                        bYPoint = k;
-                        bXPoint = i;
+                        b = new Coordinates(k, i);
                         bs++;
                         dataObject = POINT_B;
                         break;
