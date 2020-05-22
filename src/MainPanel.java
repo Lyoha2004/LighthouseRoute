@@ -56,7 +56,9 @@ public class MainPanel extends JPanel implements ActionListener {
         }
 
         map = new Map();
-        route = new Route().getRoute();
+        Route routeAlgo = new Route();
+
+        route = routeAlgo.getRoute();
 
         data = map.getData();
 

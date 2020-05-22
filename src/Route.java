@@ -26,7 +26,10 @@ public class Route {
             border.addAll(makeCircle(lighthouse));
         }
 
+        long timeBeforeTest = System.currentTimeMillis();
         route = findRoute(a, b);
+        long timeAfterTest = System.currentTimeMillis();
+        System.out.printf("Time for algorithm: %.3f seconds", (double)(timeAfterTest - timeBeforeTest) / 1000);
     }
 
     private List<Coordinates> findRoute(Coordinates a, Coordinates b) {
@@ -50,7 +53,7 @@ public class Route {
                 double newCost = costSoFar.get(current) + moveCost(current, next);
                 if (!costSoFar.containsKey(next) || newCost < costSoFar.get(next)) {
                     costSoFar.put(next, newCost);
-                    double priority = newCost;
+                    double priority = newCost + heuristic(b, next);
                     frontier.add(new CoordinateWithCost(priority, next));
                     cameFrom.put(next, current);
                 }
@@ -129,6 +132,10 @@ public class Route {
             border.add(new Coordinates(map.WIDTH, i));
         }
         return border;
+    }
+
+    private double heuristic(Coordinates a, Coordinates b) {
+        return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
     }
 
     private List<Coordinates> findAllTangent(Coordinates m, Coordinates o) {
