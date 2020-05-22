@@ -19,40 +19,39 @@ public class Route {
         b = map.getB();
         lighthouses = map.getLighthouses();
 
-        // Test
-
         border = new HashSet<>();
         border.addAll(addScreenBorder());
-//        List<Coordinates> dots = new ArrayList<>();
 
         for (Coordinates lighthouse : lighthouses) {
             border.addAll(makeCircle(lighthouse));
         }
 
         route = findRoute(a, b);
-
-        for (Coordinates dot : route) {
-            System.out.println(dot);
-        }
     }
 
     private List<Coordinates> findRoute(Coordinates a, Coordinates b) {
-        Queue<Coordinates> frontier = new LinkedList<>();
-        frontier.add(a);
+        Queue<CoordinateWithCost> frontier = new PriorityQueue<>(costComparator);
+        frontier.add(new CoordinateWithCost(0, a));
         HashMap<Coordinates, Coordinates> cameFrom = new HashMap<>();
+        HashMap<Coordinates, Double> costSoFar = new HashMap<>();
+
         cameFrom.put(a, null);
+        costSoFar.put(a, 0.0);
 
         // Обход в ширину
         while (!frontier.isEmpty()) {
-            Coordinates current = frontier.poll();
+            Coordinates current = frontier.poll().coordinate;
 
             if (current.equals(b)) {
                 break;
             }
 
             for (Coordinates next : getNeighbors(current)) {
-                if (!cameFrom.containsKey(next)) {
-                    frontier.add(next);
+                double newCost = costSoFar.get(current) + moveCost(current, next);
+                if (!costSoFar.containsKey(next) || newCost < costSoFar.get(next)) {
+                    costSoFar.put(next, newCost);
+                    double priority = newCost;
+                    frontier.add(new CoordinateWithCost(priority, next));
                     cameFrom.put(next, current);
                 }
             }
@@ -70,6 +69,36 @@ public class Route {
         return path;
     }
 
+    private double moveCost(Coordinates a, Coordinates b) {
+        return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+    }
+
+    class CoordinateWithCost {
+
+        private double cost;
+        private Coordinates coordinate;
+
+        public CoordinateWithCost(double cost, Coordinates coordinate) {
+            this.cost = cost;
+            this.coordinate = coordinate;
+        }
+
+        public double getCost() {
+            return cost;
+        }
+
+        public Coordinates getCoordinate() {
+            return coordinate;
+        }
+    }
+
+    public static Comparator<CoordinateWithCost> costComparator = new Comparator<CoordinateWithCost>() {
+        @Override
+        public int compare(CoordinateWithCost o1, CoordinateWithCost o2) {
+            return (int) (o1.getCost() - o2.getCost());
+        }
+    };
+
     /**
      * Находит все возможные соседние клетки
      * @param coord
@@ -77,9 +106,10 @@ public class Route {
      */
     private List<Coordinates> getNeighbors(Coordinates coord) {
         Coordinates[] directions = {new Coordinates(1, 0), new Coordinates(0, 1),
-                new Coordinates(-1, 0), new Coordinates(0, -1)};
+                new Coordinates(-1, 0), new Coordinates(0, -1), new Coordinates(1, 1),
+                new Coordinates(1, -1), new Coordinates(-1, -1), new Coordinates(-1, 1)};
         List<Coordinates> neighbors = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < directions.length; i++) {
             Coordinates dot = new Coordinates(coord.x + directions[i].x, coord.y + directions[i].y);
             if (!border.contains(dot)) {
                 neighbors.add(dot);
@@ -206,8 +236,17 @@ public class Route {
 
             Coordinates dot = new Coordinates((int) Math.round(centre.x + x1), (int) Math.round(centre.y + y1));
 
-            if (!dot.equals(surface.get(surface.size()-1)) && !dot.equals(surface.get(0)))
-                surface.add(dot);
+            surface.add(dot);
+        }
+
+        for (int i = 1; i < 360; i += deltaAngle) {
+            angle = i;
+            x1 = (r-1) * Math.cos(angle * Math.PI / 180);
+            y1 = (r-1) * Math.sin(angle * Math.PI / 180);
+
+            Coordinates dot = new Coordinates((int) Math.round(centre.x + x1), (int) Math.round(centre.y + y1));
+
+            surface.add(dot);
         }
 
         return surface;
