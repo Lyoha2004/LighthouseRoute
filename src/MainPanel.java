@@ -26,6 +26,16 @@ public class MainPanel extends JPanel implements ActionListener {
     private Image shipLeftImage;
     private Image shipUpImage;
     private Image shipDownImage;
+    private int delay = 25;
+    public Timer timer;
+
+    public void setDelay(int delay) {
+        this.delay = delay;
+    }
+
+    public int getDelay() {
+        return delay;
+    }
 
     private Ship ship;
     private Map map;
@@ -33,7 +43,7 @@ public class MainPanel extends JPanel implements ActionListener {
 
     public MainPanel(int screenWidth, int screenHeight) {
         screenFormat = (double)screenWidth / screenHeight;
-        Timer timer = new Timer(25, this);
+        timer = new Timer(delay, this);
         waterImages = new ArrayList<>();
         try {
             waterImages.add(ImageIO.read(new File("./res/water_4.gif")));
