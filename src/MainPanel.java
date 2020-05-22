@@ -49,6 +49,7 @@ public class MainPanel extends JPanel implements ActionListener {
             shipRightImage = ImageIO.read(new File("./res/advanced_ship.gif"));
             shipLeftImage = ImageIO.read(new File("./res/advanced_ship_left.png"));
 
+
             waterImage = waterImages.get(0);
             shipImage = shipRightImage;
         } catch (IOException e) {
