@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainPanel extends JPanel implements ActionListener {
-    private static final int PX = 50;
+    private static final int PX = 15;
     private final int HEIGHT_PX_COUNT;
     private final int WIDTH_PX_COUNT;
     private final int Y0_PX_NUMBER;
@@ -33,7 +33,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private List<Coordinates> route;
 
     public MainPanel(int screenWidth, int screenHeight) {
-        Timer timer = new Timer(10, this);
+        Timer timer = new Timer(1, this);
         waterImages = new ArrayList<>();
         WIDTH_PX_COUNT = screenWidth / PX;
         HEIGHT_PX_COUNT = screenHeight / PX;
@@ -44,11 +44,12 @@ public class MainPanel extends JPanel implements ActionListener {
             waterImages.add(ImageIO.read(new File("./res/water.gif")));
             groundImage = ImageIO.read(new File("./res/grass.gif"));
             lighthouseImage = ImageIO.read(new File("./res/lighthouse.gif"));
-            aImage = ImageIO.read(new File("./res/a.gif"));
-            bImage = ImageIO.read(new File("./res/b.gif"));
+            aImage = ImageIO.read(new File("./res/a_transparent.gif"));
+            bImage = ImageIO.read(new File("./res/b_transparent.gif"));
             shipRightImage = ImageIO.read(new File("./res/advanced_ship.gif"));
-            shipLeftImage = ImageIO.read(new File("./res/advanced_ship_left.png"));
-
+            shipLeftImage = ImageIO.read(new File("./res/advanced_ship_left.gif"));
+            shipUpImage = ImageIO.read(new File("./res/advanced_ship_up.gif"));
+            shipDownImage = ImageIO.read(new File("./res/advanced_ship_down.gif"));
 
             waterImage = waterImages.get(0);
             shipImage = shipRightImage;
@@ -84,9 +85,11 @@ public class MainPanel extends JPanel implements ActionListener {
                         img = lighthouseImage;
                         break;
                     case Map.POINT_A:
+                        g.drawImage(waterImage, X0_PX_NUMBER * PX + j * PX, Y0_PX_NUMBER * PX + i * PX, PX, PX, this);
                         img = aImage;
                         break;
                     case Map.POINT_B:
+                        g.drawImage(waterImage, X0_PX_NUMBER * PX + j * PX, Y0_PX_NUMBER * PX + i * PX, PX, PX, this);
                         img = bImage;
                         break;
                 }
@@ -94,10 +97,6 @@ public class MainPanel extends JPanel implements ActionListener {
             }
         }
         g.drawImage(shipImage, (int)(X0_PX_NUMBER * PX + ship.getX() * PX), (int)(Y0_PX_NUMBER * PX + ship.getY() * PX), PX, PX, this);
-
-    }
-
-    public void move() {
 
     }
 
@@ -133,6 +132,16 @@ public class MainPanel extends JPanel implements ActionListener {
             i += direction;
             if (i == route.size() - 1 || i == 0)
                 direction *= -1;
+
+            if (getNextPoint().y - route.get(i).y < 0) {
+                shipImage = shipUpImage;
+            } else if (getNextPoint().y - route.get(i).y > 0) {
+                shipImage = shipDownImage;
+            } else if (getNextPoint().x - route.get(i).x < 0) {
+                shipImage = shipLeftImage;
+            } else {
+                shipImage = shipRightImage;
+            }
         }
     }
 

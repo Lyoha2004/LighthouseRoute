@@ -7,7 +7,7 @@ public class Route {
     private List<Coordinates> route;
     private HashSet<Coordinates> border;
     private Map map;
-    private int r = 2;
+    private int r = 4;
 
     public List<Coordinates> getRoute() {
         return route;
