@@ -1,13 +1,12 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Route {
     private Coordinates a;
     private Coordinates b;
     private List<Coordinates> lighthouses;
     private List<Coordinates> route;
+    private HashSet<Coordinates> border;
+    private Map map;
     private int r = 2;
 
     public List<Coordinates> getRoute() {
@@ -15,30 +14,91 @@ public class Route {
     }
 
     public Route() {
-        Map map = new Map();
+        map = new Map();
         a = map.getA();
         b = map.getB();
         lighthouses = map.getLighthouses();
 
-        findRoute();
-
         // Test
 
-        Set<Coordinates> dots = new HashSet<>();
+        border = new HashSet<>();
+        border.addAll(addScreenBorder());
+//        List<Coordinates> dots = new ArrayList<>();
 
         for (Coordinates lighthouse : lighthouses) {
-            dots.addAll(makeCircle(lighthouse));
+            border.addAll(makeCircle(lighthouse));
         }
 
-        for (Coordinates dot : dots) {
+        route = findRoute(a, b);
+
+        for (Coordinates dot : route) {
             System.out.println(dot);
         }
-
-        route = new ArrayList<>(dots);
     }
 
-    private void findRoute() {
+    private List<Coordinates> findRoute(Coordinates a, Coordinates b) {
+        Queue<Coordinates> frontier = new LinkedList<>();
+        frontier.add(a);
+        HashMap<Coordinates, Coordinates> cameFrom = new HashMap<>();
+        cameFrom.put(a, null);
 
+        // Обход в ширину
+        while (!frontier.isEmpty()) {
+            Coordinates current = frontier.poll();
+
+            if (current.equals(b)) {
+                break;
+            }
+
+            for (Coordinates next : getNeighbors(current)) {
+                if (!cameFrom.containsKey(next)) {
+                    frontier.add(next);
+                    cameFrom.put(next, current);
+                }
+            }
+        }
+
+        // Восстановление пути
+        List<Coordinates> path = new ArrayList<>();
+        Coordinates current = b;
+        path.add(current);
+        while (!current.equals(a)) {
+            current = cameFrom.get(current);
+            path.add(current);
+        }
+        path = turnList(path);
+        return path;
+    }
+
+    /**
+     * Находит все возможные соседние клетки
+     * @param coord
+     * @return
+     */
+    private List<Coordinates> getNeighbors(Coordinates coord) {
+        Coordinates[] directions = {new Coordinates(1, 0), new Coordinates(0, 1),
+                new Coordinates(-1, 0), new Coordinates(0, -1)};
+        List<Coordinates> neighbors = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            Coordinates dot = new Coordinates(coord.x + directions[i].x, coord.y + directions[i].y);
+            if (!border.contains(dot)) {
+                neighbors.add(dot);
+            }
+        }
+        return neighbors;
+    }
+
+    private List<Coordinates> addScreenBorder() {
+        List<Coordinates> border = new ArrayList<>();
+        for (int i = -1; i < map.WIDTH + 1; i++) {
+            border.add(new Coordinates(i, -1));
+            border.add(new Coordinates(i, map.HEIGHT));
+        }
+        for (int i = -1; i < map.HEIGHT + 1; i++) {
+            border.add(new Coordinates(-1, i));
+            border.add(new Coordinates(map.WIDTH, i));
+        }
+        return border;
     }
 
     private List<Coordinates> findAllTangent(Coordinates m, Coordinates o) {

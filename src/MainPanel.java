@@ -33,7 +33,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private List<Coordinates> route;
 
     public MainPanel(int screenWidth, int screenHeight) {
-        Timer timer = new Timer(50, this);
+        Timer timer = new Timer(10, this);
         waterImages = new ArrayList<>();
         WIDTH_PX_COUNT = screenWidth / PX;
         HEIGHT_PX_COUNT = screenHeight / PX;

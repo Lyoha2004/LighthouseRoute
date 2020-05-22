@@ -11,6 +11,9 @@ public class Map {
     private Coordinates a;
     private Coordinates b;
 
+    public final int WIDTH;
+    public final int HEIGHT;
+
     static final int WATER = 0;
     static final int GROUND = 1;
     static final int LIGHTHOUSE = 2;
@@ -95,6 +98,9 @@ public class Map {
         } catch (IOException e) {
             System.err.println("Wrong map! There should be ane A and one B");
         }
+
+        WIDTH = data.get(0).size();
+        HEIGHT = data.size();
     }
 
     public List<List<Integer>> getData() {
