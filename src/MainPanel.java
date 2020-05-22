@@ -9,11 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainPanel extends JPanel implements ActionListener {
-    private static final int PX = 50;
-    private final int HEIGHT_PX_COUNT;
-    private final int WIDTH_PX_COUNT;
-    private final int Y0_PX_NUMBER;
-    private final int X0_PX_NUMBER;
+    private int PX = 0;
+    private int X0 = 50;
+    private int Y0 = 50;
+    private double screenFormat = 0;
     private List<List<Integer>> data;
 
     private Image waterImage;
@@ -33,10 +32,9 @@ public class MainPanel extends JPanel implements ActionListener {
     private List<Coordinates> route;
 
     public MainPanel(int screenWidth, int screenHeight) {
+        screenFormat = (double)screenWidth / screenHeight;
         Timer timer = new Timer(25, this);
         waterImages = new ArrayList<>();
-        WIDTH_PX_COUNT = screenWidth / PX;
-        HEIGHT_PX_COUNT = screenHeight / PX;
         try {
             waterImages.add(ImageIO.read(new File("./res/water_4.gif")));
             waterImages.add(ImageIO.read(new File("./res/water_3.gif")));
@@ -61,8 +59,15 @@ public class MainPanel extends JPanel implements ActionListener {
         route = new Route().getRoute();
 
         data = map.getData();
-        Y0_PX_NUMBER = (HEIGHT_PX_COUNT - data.size()) / 2;
-        X0_PX_NUMBER = (WIDTH_PX_COUNT - data.get(0).size()) / 2;
+
+        if (map.WIDTH >= map.HEIGHT * screenFormat) {
+            PX = (screenWidth - X0 * 2) / map.WIDTH;
+            Y0 = (screenHeight - PX * map.HEIGHT) / 2;
+        } else {
+            PX = (screenHeight - Y0 * 2) / map.HEIGHT;
+            X0 = (screenWidth - PX * map.WIDTH) / 2;
+        }
+        speed = (double)PX / 20;
 
 
         ship = new Ship(map.getA().x, map.getA().y);
@@ -85,18 +90,18 @@ public class MainPanel extends JPanel implements ActionListener {
                         img = lighthouseImage;
                         break;
                     case Map.POINT_A:
-                        g.drawImage(waterImage, X0_PX_NUMBER * PX + j * PX, Y0_PX_NUMBER * PX + i * PX, PX, PX, this);
+                        g.drawImage(waterImage, X0 + j * PX, Y0 + i * PX, PX, PX, this);
                         img = aImage;
                         break;
                     case Map.POINT_B:
-                        g.drawImage(waterImage, X0_PX_NUMBER * PX + j * PX, Y0_PX_NUMBER * PX + i * PX, PX, PX, this);
+                        g.drawImage(waterImage, X0 + j * PX, Y0 + i * PX, PX, PX, this);
                         img = bImage;
                         break;
                 }
-                g.drawImage(img, X0_PX_NUMBER * PX + j * PX, Y0_PX_NUMBER * PX + i * PX, PX, PX, this);
+                g.drawImage(img, X0 + j * PX, Y0 + i * PX, PX, PX, this);
             }
         }
-        g.drawImage(shipImage, (int)(X0_PX_NUMBER * PX + ship.getX() * PX), (int)(Y0_PX_NUMBER * PX + ship.getY() * PX), PX, PX, this);
+        g.drawImage(shipImage, (int)(X0 + ship.getX() * PX), (int)(Y0 + ship.getY() * PX), PX, PX, this);
 
     }
 
@@ -104,7 +109,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private int i = 0;
     private int j = 1;
     private int waterNum = 0;
-    private double speed = (double)PX / 20;
+    private double speed;
     private final int waterSpeed = 6;
     private int k = 0;
 
