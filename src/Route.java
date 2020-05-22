@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Route {
     private Coordinates a;
@@ -21,20 +23,21 @@ public class Route {
         findRoute();
 
         // Test
-        Coordinates lighthouse = lighthouses.get(4);
-        System.out.println("Lighthouse: " + lighthouse);
-        List<Coordinates> dots = makeLine(a, findAllTangent(a, lighthouse).get(1));
+
+        Set<Coordinates> dots = new HashSet<>();
+
+        for (Coordinates lighthouse : lighthouses) {
+            dots.addAll(makeCircle(lighthouse));
+        }
+
         for (Coordinates dot : dots) {
             System.out.println(dot);
         }
-        route = dots;
+
+        route = new ArrayList<>(dots);
     }
 
     private void findRoute() {
-
-    }
-
-    private void makeCircle(Coordinates lighthouse) {
 
     }
 
@@ -103,11 +106,11 @@ public class Route {
                 dots.add(new Coordinates(x, y));
             } else {
                 if (prev_y < y) {
-                    for (int i = prev_y + 1; i <= y; i++) {
+                    for (int i = prev_y + 1; i <= Math.min(y, b.y); i++) {
                         dots.add(new Coordinates(x, i));
                     }
                 } else {
-                    for (int i = prev_y - 1; i >= y; i--) {
+                    for (int i = prev_y - 1; i >= Math.max(y, b.y); i--) {
                         dots.add(new Coordinates(x, i));
                     }
                 }
@@ -127,5 +130,26 @@ public class Route {
         }
 
         return copy;
+    }
+
+    private List<Coordinates> makeCircle(Coordinates centre) {
+        List<Coordinates> surface = new ArrayList<>();
+
+        double angle = 0, x1 = 0, y1 = 0;
+        int deltaAngle = 10;
+        surface.add(new Coordinates(centre.x + r, centre.y));
+
+        for (int i = 1; i < 360; i += deltaAngle) {
+            angle = i;
+            x1 = r * Math.cos(angle * Math.PI / 180);
+            y1 = r * Math.sin(angle * Math.PI / 180);
+
+            Coordinates dot = new Coordinates((int) Math.round(centre.x + x1), (int) Math.round(centre.y + y1));
+
+            if (!dot.equals(surface.get(surface.size()-1)) && !dot.equals(surface.get(0)))
+                surface.add(dot);
+        }
+
+        return surface;
     }
 }
