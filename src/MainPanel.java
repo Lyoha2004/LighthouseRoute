@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainPanel extends JPanel implements ActionListener {
-    private static final int PX = 15;
+    private static final int PX = 50;
     private final int HEIGHT_PX_COUNT;
     private final int WIDTH_PX_COUNT;
     private final int Y0_PX_NUMBER;
@@ -33,7 +33,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private List<Coordinates> route;
 
     public MainPanel(int screenWidth, int screenHeight) {
-        Timer timer = new Timer(1, this);
+        Timer timer = new Timer(25, this);
         waterImages = new ArrayList<>();
         WIDTH_PX_COUNT = screenWidth / PX;
         HEIGHT_PX_COUNT = screenHeight / PX;
