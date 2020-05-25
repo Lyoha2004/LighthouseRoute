@@ -7,7 +7,8 @@ public class Application {
         JFrame frame = new MainFrame();
         frame.setTitle("Lighthouse Route");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setLayout(null);
+
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
         frame.setResizable(false);
     }
@@ -19,10 +20,11 @@ class MainFrame extends JFrame {
     JButton upSpeedButton;
     JButton downSpeedButton;
     public MainFrame() {
+//        this.setUndecorated(true);
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
         int screenHeight = (int)(screenSize.height * 0.8);
-        int screenWidth = (int)(screenSize.width * 0.8);
+        int screenWidth = screenSize.width;
         panel = new MainPanel(screenWidth, screenHeight - 10);
         add(panel, BorderLayout.CENTER);
         buttonPanel = new JPanel();

@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49296ee9-bc68-4441-907a-3159725ef101" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/maps/map2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/map.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/MainPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/MainPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Route$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Route$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Route$CoordinateWithCost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Route$CoordinateWithCost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Route.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Route.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +36,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Flappy" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PackAllCodeInOneFile" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -88,7 +86,11 @@
       <workItem from="1590077380780" duration="13425000" />
       <workItem from="1590093526793" duration="1851000" />
       <workItem from="1590126716831" duration="19043000" />
-      <workItem from="1590147493879" duration="7210000" />
+      <workItem from="1590147493879" duration="11230000" />
+      <workItem from="1590168489289" duration="694000" />
+      <workItem from="1590226476575" duration="1264000" />
+      <workItem from="1590262278419" duration="1023000" />
+      <workItem from="1590325333259" duration="3861000" />
     </task>
     <task id="LOCAL-00001" summary="start graphic">
       <created>1589980334668</created>
@@ -321,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590157897692</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Algorithm Test">
+      <created>1590160821003</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1590160821003</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,30 +363,30 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="1210" y="257" width="488" height="606" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1590159865656" />
-    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2" timestamp="1590157897556">
+    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2" timestamp="1590160820715">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1590157897556" />
-    <state x="743" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1589996172628">
+    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1590160820715" />
+    <state x="743" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1590164402798">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="743" y="311" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1589996172628" />
-    <state width="1878" height="320" key="GridCell.Tab.0.bottom" timestamp="1590160611471">
+    <state x="743" y="311" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1590164402798" />
+    <state width="1878" height="261" key="GridCell.Tab.0.bottom" timestamp="1590340049375">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="320" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1590160611471" />
-    <state width="1878" height="320" key="GridCell.Tab.0.center" timestamp="1590160611471">
+    <state width="1878" height="261" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1590340049375" />
+    <state width="1878" height="261" key="GridCell.Tab.0.center" timestamp="1590340049375">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="320" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1590160611471" />
-    <state width="1878" height="320" key="GridCell.Tab.0.left" timestamp="1590160611470">
+    <state width="1878" height="261" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1590340049375" />
+    <state width="1878" height="261" key="GridCell.Tab.0.left" timestamp="1590340049374">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="320" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1590160611470" />
-    <state width="1878" height="320" key="GridCell.Tab.0.right" timestamp="1590160611471">
+    <state width="1878" height="261" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1590340049374" />
+    <state width="1878" height="261" key="GridCell.Tab.0.right" timestamp="1590340049375">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="320" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1590160611471" />
+    <state width="1878" height="261" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1590340049375" />
     <state width="1878" height="299" key="GridCell.Tab.1.bottom" timestamp="1590156754622">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -398,10 +407,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="443" y="131" width="1024" height="852" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1589992658245" />
-    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1590157899760">
+    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1590160823717">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1590157899760" />
+    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1590160823717" />
     <state x="1196" y="469" width="411" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589984912380">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -431,6 +440,14 @@
           <url>file://$PROJECT_DIR$/src/MainPanel.java</url>
           <line>81</line>
           <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Route.java</url>
+          <line>231</line>
+          <properties class="Route" method="makeCircle">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

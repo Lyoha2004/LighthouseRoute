@@ -135,7 +135,7 @@ public class Route {
     }
 
     private double heuristic(Coordinates a, Coordinates b) {
-        return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+        return Math.max(Math.abs(a.x - b.x), Math.abs(a.y - b.y));
     }
 
     private List<Coordinates> findAllTangent(Coordinates m, Coordinates o) {
