@@ -29,7 +29,7 @@ public class Route {
         long timeBeforeTest = System.currentTimeMillis();
         route = findRoute(a, b);
         long timeAfterTest = System.currentTimeMillis();
-        System.out.printf("Time for algorithm: %.3f seconds", (double)(timeAfterTest - timeBeforeTest) / 1000);
+        System.out.printf("Time for algorithm: %.3f seconds\n", (double)(timeAfterTest - timeBeforeTest) / 1000);
     }
 
     private List<Coordinates> findRoute(Coordinates a, Coordinates b) {
@@ -53,7 +53,7 @@ public class Route {
                 double newCost = costSoFar.get(current) + moveCost(current, next);
                 if (!costSoFar.containsKey(next) || newCost < costSoFar.get(next)) {
                     costSoFar.put(next, newCost);
-                    double priority = newCost + heuristic(b, next);
+                    double priority = newCost;
                     frontier.add(new CoordinateWithCost(priority, next));
                     cameFrom.put(next, current);
                 }

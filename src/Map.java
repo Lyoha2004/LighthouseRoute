@@ -33,7 +33,7 @@ public class Map {
     }
 
     public Map() {
-        File mapFile = new File("./maps/map2.txt");
+        File mapFile = new File("./maps/map3.txt");
         Scanner sc = null;
         try {
             sc = new Scanner(mapFile);
