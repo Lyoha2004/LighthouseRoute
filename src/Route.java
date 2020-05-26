@@ -45,15 +45,15 @@ public class Route {
         while (!frontier.isEmpty()) {
             Coordinates current = frontier.poll().coordinate;
 
-            if (current.equals(b)) {
-                break;
-            }
+//            if (current.equals(b)) {
+//                break;
+//            }
 
             for (Coordinates next : getNeighbors(current)) {
                 double newCost = costSoFar.get(current) + moveCost(current, next);
                 if (!costSoFar.containsKey(next) || newCost < costSoFar.get(next)) {
                     costSoFar.put(next, newCost);
-                    double priority = newCost;
+                    double priority = newCost + heuristic(next, b);
                     frontier.add(new CoordinateWithCost(priority, next));
                     cameFrom.put(next, current);
                 }
