@@ -18,6 +18,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private Image waterImage;
     private Image waterImage2;
     private List<Image> waterImages;
+    private List<Image> grassImages;
     private Image groundImage;
     private Image lighthouseImage;
     private Image aImage;
@@ -46,6 +47,7 @@ public class MainPanel extends JPanel implements ActionListener {
         screenFormat = (double)screenWidth / screenHeight;
         timer = new Timer(delay, this);
         waterImages = new ArrayList<>();
+        grassImages = new ArrayList<>();
         try {
             waterImages.add(ImageIO.read(new File("./res/water_4.gif")));
             waterImages.add(ImageIO.read(new File("./res/water_3.gif")));
@@ -55,8 +57,11 @@ public class MainPanel extends JPanel implements ActionListener {
             waterImages.add(ImageIO.read(new File("./res/water1.png")));
             waterImages.add(ImageIO.read(new File("./res/water2.png")));
             waterImages.add(ImageIO.read(new File("./res/water3.png")));
-            groundImage = ImageIO.read(new File("./res/grass.gif"));
-            lighthouseImage = ImageIO.read(new File("./res/lighthouse.gif"));
+            grassImages.add(ImageIO.read(new File("./res/grass.gif")));
+            grassImages.add(ImageIO.read(new File("./res/grass_mid.gif")));
+            grassImages.add(ImageIO.read(new File("./res/grass2.png")));
+            grassImages.add(ImageIO.read(new File("./res/grass_mid.gif")));
+            lighthouseImage = ImageIO.read(new File("./res/lighthouse_transparent.gif"));
             aImage = ImageIO.read(new File("./res/a_transparent.gif"));
             bImage = ImageIO.read(new File("./res/b_transparent.gif"));
             shipRightImage = ImageIO.read(new File("./res/advanced_ship.gif"));
@@ -64,6 +69,7 @@ public class MainPanel extends JPanel implements ActionListener {
             shipUpImage = ImageIO.read(new File("./res/advanced_ship_up.gif"));
             shipDownImage = ImageIO.read(new File("./res/advanced_ship_down.gif"));
 
+            groundImage = grassImages.get(0);
             waterImage = waterImages.get(0);
             waterImage2 = waterImages.get(4);
             shipImage = shipRightImage;
@@ -109,6 +115,7 @@ public class MainPanel extends JPanel implements ActionListener {
                         img = groundImage;
                         break;
                     case Map.LIGHTHOUSE:
+                        g.drawImage(groundImage, X0 + j * PX, Y0 + i * PX, PX, PX, this);
                         img = lighthouseImage;
                         break;
                     case Map.POINT_A:
@@ -131,9 +138,12 @@ public class MainPanel extends JPanel implements ActionListener {
     private int i = 0;
     private int j = 1;
     private int waterNum = 0;
+    private int grassNum = 0;
     private double speed;
     private final int waterSpeed = 6;
+    private final int grassSpeed = 10;
     private int k = 0;
+    private int g = 0;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -141,6 +151,7 @@ public class MainPanel extends JPanel implements ActionListener {
         ship.setY(route.get(i).y + (speed * j * (getNextPoint().y - route.get(i).y)) / PX);
         j++;
         k++;
+        g++;
 
         if (j == 20) {
             j = 0;
@@ -153,6 +164,14 @@ public class MainPanel extends JPanel implements ActionListener {
                 waterNum = 0;
             waterImage = waterImages.get(waterNum);
             waterImage2 = waterImages.get(waterNum+4);
+        }
+
+        if (g == grassSpeed) {
+            g = 0;
+            grassNum++;
+            if (grassNum == 4)
+                grassNum = 0;
+            groundImage = grassImages.get(grassNum);
         }
 
         repaint();
