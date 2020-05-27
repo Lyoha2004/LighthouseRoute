@@ -16,6 +16,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private List<List<Integer>> data;
 
     private Image waterImage;
+    private Image waterImage2;
     private List<Image> waterImages;
     private Image groundImage;
     private Image lighthouseImage;
@@ -41,7 +42,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private Map map;
     private List<Coordinates> route;
 
-    public MainPanel(int screenWidth, int screenHeight) {
+    public MainPanel(int screenWidth, int screenHeight, String fileName) {
         screenFormat = (double)screenWidth / screenHeight;
         timer = new Timer(delay, this);
         waterImages = new ArrayList<>();
@@ -50,6 +51,10 @@ public class MainPanel extends JPanel implements ActionListener {
             waterImages.add(ImageIO.read(new File("./res/water_3.gif")));
             waterImages.add(ImageIO.read(new File("./res/water_2.gif")));
             waterImages.add(ImageIO.read(new File("./res/water.gif")));
+            waterImages.add(ImageIO.read(new File("./res/water.png")));
+            waterImages.add(ImageIO.read(new File("./res/water1.png")));
+            waterImages.add(ImageIO.read(new File("./res/water2.png")));
+            waterImages.add(ImageIO.read(new File("./res/water3.png")));
             groundImage = ImageIO.read(new File("./res/grass.gif"));
             lighthouseImage = ImageIO.read(new File("./res/lighthouse.gif"));
             aImage = ImageIO.read(new File("./res/a_transparent.gif"));
@@ -60,13 +65,14 @@ public class MainPanel extends JPanel implements ActionListener {
             shipDownImage = ImageIO.read(new File("./res/advanced_ship_down.gif"));
 
             waterImage = waterImages.get(0);
+            waterImage2 = waterImages.get(4);
             shipImage = shipRightImage;
         } catch (IOException e) {
             System.out.println("Image error");
         }
 
-        map = new Map();
-        Route routeAlgo = new Route();
+        map = new Map(fileName);
+        Route routeAlgo = new Route(fileName);
 
         route = routeAlgo.getRoute();
 
@@ -93,7 +99,11 @@ public class MainPanel extends JPanel implements ActionListener {
                 Image img = null;
                 switch (data.get(i).get(j)) {
                     case Map.WATER:
-                        img = waterImage;
+                        if ((i + j) % 2 == 0) {
+                            img = waterImage;
+                        } else {
+                            img = waterImage2;
+                        }
                         break;
                     case Map.GROUND:
                         img = groundImage;
@@ -142,6 +152,7 @@ public class MainPanel extends JPanel implements ActionListener {
             if (waterNum == 4)
                 waterNum = 0;
             waterImage = waterImages.get(waterNum);
+            waterImage2 = waterImages.get(waterNum+4);
         }
 
         repaint();

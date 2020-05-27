@@ -3,8 +3,12 @@ import java.awt.*;
 
 public class Application {
     public static void main(String[] args) {
-
-        JFrame frame = new MainFrame();
+        if (args.length < 1) {
+            System.err.println("java Syntax: <path>");
+            System.exit(-1);
+        }
+        String fileName = args[0];
+        JFrame frame = new MainFrame(fileName);
         frame.setTitle("Lighthouse Route");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -19,13 +23,13 @@ class MainFrame extends JFrame {
     JPanel buttonPanel;
     JButton upSpeedButton;
     JButton downSpeedButton;
-    public MainFrame() {
+    public MainFrame(String filename) {
 //        this.setUndecorated(true);
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
         int screenHeight = (int)(screenSize.height * 0.8);
         int screenWidth = screenSize.width;
-        panel = new MainPanel(screenWidth, screenHeight - 10);
+        panel = new MainPanel(screenWidth, screenHeight - 10, filename);
         add(panel, BorderLayout.CENTER);
         buttonPanel = new JPanel();
         upSpeedButton = new JButton("X2");

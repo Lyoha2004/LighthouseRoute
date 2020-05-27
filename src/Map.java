@@ -32,8 +32,8 @@ public class Map {
         return b;
     }
 
-    public Map() {
-        File mapFile = new File("./maps/large_map2.txt");
+    public Map(String fileName) {
+        File mapFile = new File(fileName);
         Scanner sc = null;
         try {
             sc = new Scanner(mapFile);

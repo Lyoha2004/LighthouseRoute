@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="LighthouseRoute:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/LighthouseRoute_jar</output-path>
+    <root id="archive" name="LighthouseRoute.jar">
+      <element id="module-output" name="LighthouseRoute" />
+    </root>
+  </artifact>
+</component>
