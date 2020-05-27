@@ -37,11 +37,18 @@ public class Route {
         frontier.add(new CoordinateWithCost(0, a));
         HashMap<Coordinates, Coordinates> cameFrom = new HashMap<>();
         HashMap<Coordinates, Double> costSoFar = new HashMap<>();
+        HashMap<Coordinates, Double[]> fines = new HashMap<>();
+        HashMap<Coordinates, Integer> directions = new HashMap<>();
+        Double[] primaryFines = new Double[8];
+        for (int i = 0; i < 8; i++) {
+            primaryFines[i] = 0.0;
+        }
 
         cameFrom.put(a, null);
         costSoFar.put(a, 0.0);
+        fines.put(a, primaryFines);
 
-        // Обход в ширину
+        // A star
         while (!frontier.isEmpty()) {
             Coordinates current = frontier.poll().coordinate;
 
@@ -50,9 +57,16 @@ public class Route {
 //            }
 
             for (Coordinates next : getNeighbors(current)) {
+                int direction = current.getDirection(next);
+                double newFine = fines.get(current)[direction] + 1;
+                Double[] nextFines = fines.get(current).clone();
+                nextFines[direction]++;
                 double newCost = costSoFar.get(current) + moveCost(current, next);
-                if (!costSoFar.containsKey(next) || newCost < costSoFar.get(next)) {
+
+                if (!costSoFar.containsKey(next) || newCost < costSoFar.get(next) || (newCost == costSoFar.get(next) && newFine < fines.get(next)[directions.get(next)])) {
                     costSoFar.put(next, newCost);
+                    fines.put(next, nextFines);
+                    directions.put(next, direction);
                     double priority = newCost + heuristic(next, b);
                     frontier.add(new CoordinateWithCost(priority, next));
                     cameFrom.put(next, current);
@@ -70,6 +84,16 @@ public class Route {
         }
         path = turnList(path);
         return path;
+    }
+
+    private Double getMinDouble(Double[] numbers) {
+        Double minValue = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] < minValue) {
+                minValue = numbers[i];
+            }
+        }
+        return minValue;
     }
 
     private double moveCost(Coordinates a, Coordinates b) {
