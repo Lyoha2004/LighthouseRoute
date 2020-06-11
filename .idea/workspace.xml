@@ -103,7 +103,7 @@
       <workItem from="1590934565678" duration="22000" />
       <workItem from="1591864872950" duration="2243000" />
       <workItem from="1591867160522" duration="62000" />
-      <workItem from="1591867284562" duration="870000" />
+      <workItem from="1591867284562" duration="1924000" />
     </task>
     <task id="LOCAL-00001" summary="start graphic">
       <created>1589980334668</created>
@@ -413,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591866479643</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Комментируем">
+      <created>1591868160598</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1591868160598</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,10 +471,14 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="682" y="353" width="525" height="422" key="#com.intellij.ide.util.TreeClassChooserDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1590571039732" />
-    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2" timestamp="1591866479272">
+    <state x="292" y="27" width="1325" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591868452530">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1591866479272" />
+    <state x="292" y="27" width="1325" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1591868452530" />
+    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2" timestamp="1591868160534">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1591868160534" />
     <state x="743" y="311" width="442" height="498" key="FileChooserDialogImpl" timestamp="1590737888809">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -512,10 +523,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="689" y="284" width="549" height="524" key="StructurePopup/0.27.1920.1053@0.27.1920.1053" timestamp="1591867095752" />
-    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1591866487248">
+    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1591868162288">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1591866487248" />
+    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1591868162288" />
     <state x="1196" y="469" width="411" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589984912380">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -552,7 +563,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Route.java</url>
-          <line>63</line>
+          <line>80</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -562,12 +573,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Route.java</url>
-          <line>105</line>
+          <line>122</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Route.java</url>
-          <line>297</line>
+          <line>314</line>
           <properties class="Route" method="makeCircle">
             <option name="EMULATED" value="true" />
           </properties>

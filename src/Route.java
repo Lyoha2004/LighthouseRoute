@@ -17,8 +17,8 @@ public class Route {
      * <p>Класс для вычисления кратчайшего пути от одной вершины до другой.</p>
      * <p>Для вычисления расстояния необходимо передать карту <code>Map</code>,
      * представленную в текстовом виде и включающую вершины начала пути,
-     * конца пути и вершины, принадлежащие маякам</p>
-     * <p>После нахождения кратайшего пути, в консоль выводся время, за которое отработал поиск</p>
+     * конца пути и вершины, принадлежащие маякам.</p>
+     * <p>После нахождения кратайшего пути, в консоль выводся время, за которое отработал поиск.</p>
      * @param fileName файл, содержащий карту в текстовом виде
      */
     public Route(String fileName) {
@@ -41,9 +41,27 @@ public class Route {
     }
 
 
+    /**
+     * <p>В данном приватном методе реализуется алгоритм Дейкстры с Эвристикой (A*).</p>
+     * <p>Для хранения границы применяется куча с приоритетом, применяющая компаратор по
+     * приоритету, это нужно для того, чтобы каждый раз анализировать наиболее приоритетную вершину.</p>
+     * <p>Изначально в границу включается только вершина начала пути. Затем же анализируются все
+     * доступные из неё вершины, которые потом попадают в границу, сразу же сортируясь по приоритету движения.</p>
+     * <p>Распространение границы происходит до тех пор, пока она не достигнет конца пути. В этот момент производится
+     * ранний выход, отключающий дальнейший поиск пути, потому что мы заведомо знаем, что нашли кратчайший путь,
+     * ведь мы исследовали вершины по стоимостям. Значит дальнейшие поиски однозначно дадут более длинный путь.</p>
+     * <p>После того, как мы дошли до конечной точки, мы должны найти путь от начала до конца. Для этого во время
+     * распространения границы в каждой вершине мы оставляли ссылку на вершину откуда мы в неё попали и обновляли ссылку,
+     * если находили более короткий путь до неё. Теперь для того, чтобы найти путь, нам остаётся лишь пробежаться по
+     * этим ссылкам, до начала пути, сохраняя вешины в список. Нам остаётся лишь вернуть этот список в обратном
+     * порядке.</p>
+     * @param a вершина начала пути
+     * @param b вершина концп пути
+     * @return
+     */
     private List<Coordinates> findRoute(Coordinates a, Coordinates b) {
-        Queue<CoordinateWithCost> frontier = new PriorityQueue<>(costComparator);
-        frontier.add(new CoordinateWithCost(0, a));
+        Queue<CoordinateWithPriority> frontier = new PriorityQueue<>(priorityComparator);
+        frontier.add(new CoordinateWithPriority(0, a));
         HashMap<Coordinates, Coordinates> cameFrom = new HashMap<>();
         HashMap<Coordinates, Double> costSoFar = new HashMap<>();
 
@@ -54,9 +72,9 @@ public class Route {
         while (!frontier.isEmpty()) {
             Coordinates current = frontier.poll().coordinate;
 
-//            if (current.equals(b)) {
-//                break;
-//            }
+            if (current.equals(b)) {
+                break;
+            }
 
             for (Coordinates next : getNeighbors(current)) {
                 double newCost = costSoFar.get(current) + moveCost(current, next);
@@ -64,7 +82,7 @@ public class Route {
                 if (!costSoFar.containsKey(next) || newCost < costSoFar.get(next)) {
                     costSoFar.put(next, newCost);
                     double priority = newCost + heuristic(next, b);
-                    frontier.add(new CoordinateWithCost(priority, next));
+                    frontier.add(new CoordinateWithPriority(priority, next));
                     cameFrom.put(next, current);
                 }
             }
@@ -103,18 +121,18 @@ public class Route {
         return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
     }
 
-    class CoordinateWithCost {
+    class CoordinateWithPriority {
 
-        private double cost;
+        private double priority;
         private Coordinates coordinate;
 
-        public CoordinateWithCost(double cost, Coordinates coordinate) {
-            this.cost = cost;
+        public CoordinateWithPriority(double priority, Coordinates coordinate) {
+            this.priority = priority;
             this.coordinate = coordinate;
         }
 
-        public double getCost() {
-            return cost;
+        public double getPriority() {
+            return priority;
         }
 
         public Coordinates getCoordinate() {
@@ -123,12 +141,12 @@ public class Route {
     }
 
     /**
-     * Компоратор, сравнивающий вершины по стоимости.
+     * Компоратор, сравнивающий вершины по приоритету.
      */
-    public static Comparator<CoordinateWithCost> costComparator = new Comparator<CoordinateWithCost>() {
+    public static Comparator<CoordinateWithPriority> priorityComparator = new Comparator<CoordinateWithPriority>() {
         @Override
-        public int compare(CoordinateWithCost o1, CoordinateWithCost o2) {
-            return (int) (o1.getCost() - o2.getCost());
+        public int compare(CoordinateWithPriority o1, CoordinateWithPriority o2) {
+            return (int) (o1.getPriority() - o2.getPriority());
         }
     };
 
