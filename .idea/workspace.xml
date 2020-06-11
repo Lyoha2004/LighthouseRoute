@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="49296ee9-bc68-4441-907a-3159725ef101" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Route.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +102,7 @@
       <workItem from="1590934565678" duration="22000" />
       <workItem from="1591864872950" duration="2243000" />
       <workItem from="1591867160522" duration="62000" />
-      <workItem from="1591867284562" duration="1924000" />
+      <workItem from="1591867284562" duration="3890000" />
     </task>
     <task id="LOCAL-00001" summary="start graphic">
       <created>1589980334668</created>
@@ -420,7 +419,21 @@
       <option name="project" value="LOCAL" />
       <updated>1591868160598</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Комментируем">
+      <created>1591869243902</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1591869243902</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Комментируем">
+      <created>1591869514422</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1591869514422</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,10 +468,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="443" y="131" width="1024" height="852" key="#Project_Structure/0.27.1920.1053@0.27.1920.1053" timestamp="1590737841704" />
-    <state x="549" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590576588601">
+    <state x="549" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591871378633">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="549" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1590576588601" />
+    <state x="549" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1591871378633" />
     <state x="689" y="357" width="532" height="400" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590143413717">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -475,10 +488,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="292" y="27" width="1325" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1591868452530" />
-    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2" timestamp="1591868160534">
+    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2" timestamp="1591869514354">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1591868160534" />
+    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1591869514354" />
     <state x="743" y="311" width="442" height="498" key="FileChooserDialogImpl" timestamp="1590737888809">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -523,10 +536,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="689" y="284" width="549" height="524" key="StructurePopup/0.27.1920.1053@0.27.1920.1053" timestamp="1591867095752" />
-    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1591868162288">
+    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1591869516311">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1591868162288" />
+    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1591869516311" />
     <state x="1196" y="469" width="411" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589984912380">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -562,23 +575,13 @@
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Route.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Application.java</url>
           <line>5</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Route.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Route.java</url>
-          <line>314</line>
+          <line>316</line>
           <properties class="Route" method="makeCircle">
             <option name="EMULATED" value="true" />
           </properties>
