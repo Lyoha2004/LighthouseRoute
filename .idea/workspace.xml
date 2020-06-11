@@ -7,28 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49296ee9-bc68-4441-907a-3159725ef101" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/LighthouseRoute_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/LighthouseRoute_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_05_2020,_20_26_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_05_2020,_20_39_[Default_Changelist]/Map.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_05_2020,_20_39_[Default_Changelist]/Route.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_05_2020,_20_39_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_05_2020__20_26__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_05_2020__20_39__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/map.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LighthouseRoute_jar/LighthouseRoute.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LighthouseRoute_jar/LighthouseRoute.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Coordinates.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Coordinates.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/MainPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/MainPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Route$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Route$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Route$CoordinateWithCost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Route$CoordinateWithCost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighthouseRoute/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighthouseRoute/Ship.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/grass_mid.gif" beforeDir="false" afterPath="$PROJECT_DIR$/res/grass_mid.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Route.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,9 +43,10 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -121,7 +101,9 @@
       <workItem from="1590553166913" duration="17938000" />
       <workItem from="1590737594250" duration="1860000" />
       <workItem from="1590934565678" duration="22000" />
-      <workItem from="1591864872950" duration="1579000" />
+      <workItem from="1591864872950" duration="2243000" />
+      <workItem from="1591867160522" duration="62000" />
+      <workItem from="1591867284562" duration="870000" />
     </task>
     <task id="LOCAL-00001" summary="start graphic">
       <created>1589980334668</created>
@@ -424,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590573965186</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Комментируем">
+      <created>1591866479643</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1591866479643</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +440,8 @@
     <MESSAGE value="straight lines" />
     <MESSAGE value="add water and command argument" />
     <MESSAGE value="grass animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="grass animation" />
+    <MESSAGE value="Комментируем" />
+    <option name="LAST_COMMIT_MESSAGE" value="Комментируем" />
   </component>
   <component name="WindowStateProjectService">
     <state x="443" y="131" width="1024" height="852" key="#Project_Structure" timestamp="1590737841704">
@@ -474,10 +464,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="682" y="353" width="525" height="422" key="#com.intellij.ide.util.TreeClassChooserDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1590571039732" />
-    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2" timestamp="1590573965137">
+    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2" timestamp="1591866479272">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1590573965137" />
+    <state x="903" y="69" width="802" height="893" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1591866479272" />
     <state x="743" y="311" width="442" height="498" key="FileChooserDialogImpl" timestamp="1590737888809">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -514,14 +504,18 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state width="1878" height="473" key="GridCell.Tab.1.right/0.27.1920.1053@0.27.1920.1053" timestamp="1590594723848" />
-    <state x="443" y="131" width="1024" height="852" key="SettingsEditor" timestamp="1590737920085">
+    <state x="443" y="131" width="1024" height="852" key="SettingsEditor" timestamp="1591867290352">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="443" y="131" width="1024" height="852" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1590737920085" />
-    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1590573966679">
+    <state x="443" y="131" width="1024" height="852" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1591867290352" />
+    <state x="689" y="284" width="549" height="524" key="StructurePopup" timestamp="1591867095752">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1590573966679" />
+    <state x="689" y="284" width="549" height="524" key="StructurePopup/0.27.1920.1053@0.27.1920.1053" timestamp="1591867095752" />
+    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1591866487248">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="950" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1591866487248" />
     <state x="1196" y="469" width="411" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589984912380">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -558,7 +552,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Route.java</url>
-          <line>54</line>
+          <line>63</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -566,9 +560,14 @@
           <line>5</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Route.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Route.java</url>
-          <line>273</line>
+          <line>297</line>
           <properties class="Route" method="makeCircle">
             <option name="EMULATED" value="true" />
           </properties>

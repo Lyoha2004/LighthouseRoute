@@ -13,6 +13,14 @@ public class Route {
         return route;
     }
 
+    /**
+     * <p>Класс для вычисления кратчайшего пути от одной вершины до другой.</p>
+     * <p>Для вычисления расстояния необходимо передать карту <code>Map</code>,
+     * представленную в текстовом виде и включающую вершины начала пути,
+     * конца пути и вершины, принадлежащие маякам</p>
+     * <p>После нахождения кратайшего пути, в консоль выводся время, за которое отработал поиск</p>
+     * @param fileName файл, содержащий карту в текстовом виде
+     */
     public Route(String fileName) {
         map = new Map(fileName);
         a = map.getA();
@@ -31,6 +39,7 @@ public class Route {
         long timeAfterTest = System.currentTimeMillis();
         System.out.printf("Time for algorithm: %.3f seconds\n", (double)(timeAfterTest - timeBeforeTest) / 1000);
     }
+
 
     private List<Coordinates> findRoute(Coordinates a, Coordinates b) {
         Queue<CoordinateWithCost> frontier = new PriorityQueue<>(costComparator);
@@ -83,6 +92,13 @@ public class Route {
         return minValue;
     }
 
+    /**
+     * Вычиляет стоимость перемещения из вершины <code>a</code> в врешину <code>b</code>.
+     * Здесь применяется Эвклидово расстояние.
+     * @param a вершина начала
+     * @param b вершина конца
+     * @return
+     */
     private double moveCost(Coordinates a, Coordinates b) {
         return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
     }
@@ -106,6 +122,9 @@ public class Route {
         }
     }
 
+    /**
+     * Компоратор, сравнивающий вершины по стоимости.
+     */
     public static Comparator<CoordinateWithCost> costComparator = new Comparator<CoordinateWithCost>() {
         @Override
         public int compare(CoordinateWithCost o1, CoordinateWithCost o2) {
@@ -132,6 +151,10 @@ public class Route {
         return neighbors;
     }
 
+    /**
+     * Возвращает список вершин, входящих в границу карты
+     * @return
+     */
     private List<Coordinates> addScreenBorder() {
         List<Coordinates> border = new ArrayList<>();
         for (int i = -1; i < map.WIDTH + 1; i++) {
@@ -150,6 +173,7 @@ public class Route {
      * <p>Всё, что делает метод - это сообщает, насколько мы близки к цели. Это позволяет
      * приоритизировать направление распространения во врема проверки очередной точки, она
      * добавляется в кучу в зависимости не только от стоимости, но и от растояния до финиша</p>
+     * <p>В данном случае мы используем Чебышего расстояние</p>
      *
      * @param a координата начала
      * @param b координата конца
