@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/LighthouseRoute_jar</output-path>
     <root id="archive" name="LighthouseRoute.jar">
       <element id="module-output" name="LighthouseRoute" />
+      <element id="directory" name="res" />
     </root>
   </artifact>
 </component>

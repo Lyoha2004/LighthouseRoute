@@ -145,6 +145,16 @@ public class Route {
         return border;
     }
 
+    /**
+     * <p>Эвристический метод. Заставляет границу поиска расширяться в сторону точки назначения.</p>
+     * <p>Всё, что делает метод - это сообщает, насколько мы близки к цели. Это позволяет
+     * приоритизировать направление распространения во врема проверки очередной точки, она
+     * добавляется в кучу в зависимости не только от стоимости, но и от растояния до финиша</p>
+     *
+     * @param a координата начала
+     * @param b координата конца
+     * @return расстояние от начала до конца
+     */
     private double heuristic(Coordinates a, Coordinates b) {
         return Math.max(Math.abs(a.x - b.x), Math.abs(a.y - b.y));
     }
@@ -174,6 +184,13 @@ public class Route {
         return result;
 }
 
+    /**
+     * <p>Создаёт линию, состоящую из множества вершин. При этом передаётся 2 вершины,
+     * а возвращается список вершин начиная от первой и кончая последней.</p>
+     * @param a
+     * @param b
+     * @return
+     */
     private List<Coordinates> makeLine(Coordinates a, Coordinates b) {
         boolean turned = false;
         if (a.x > b.x || (a.x == b.x && b.y < a.y)) {
@@ -231,6 +248,11 @@ public class Route {
         return dots;
     }
 
+    /**
+     * Возвращает список в перевёрнутном виде
+     * @param list
+     * @return
+     */
     private List<Coordinates> turnList(List<Coordinates> list) {
         List<Coordinates> copy = new ArrayList<>();
         for (int i = list.size() - 1; i >= 0; i--) {
@@ -240,6 +262,15 @@ public class Route {
         return copy;
     }
 
+    /**
+     * <p>Создаёт список вершин, входящих в окружность с переданным центром,
+     * используя радиус, определённый глобально.</p>
+     * <p>Для того, чтобы не было возможности пройти по диагонали
+     * внутрь окружности и точно также выйти, создаётся вторая окружность
+     * с радиусом на единицу меньше</p>
+     * @param centre <code>Центр окружности</code>
+     * @return список вершин
+     */
     private List<Coordinates> makeCircle(Coordinates centre) {
         List<Coordinates> surface = new ArrayList<>();
 

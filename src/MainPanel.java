@@ -49,32 +49,33 @@ public class MainPanel extends JPanel implements ActionListener {
         waterImages = new ArrayList<>();
         grassImages = new ArrayList<>();
         try {
-            waterImages.add(ImageIO.read(new File("./res/water_4.gif")));
-            waterImages.add(ImageIO.read(new File("./res/water_3.gif")));
-            waterImages.add(ImageIO.read(new File("./res/water_2.gif")));
-            waterImages.add(ImageIO.read(new File("./res/water.gif")));
-            waterImages.add(ImageIO.read(new File("./res/water.png")));
-            waterImages.add(ImageIO.read(new File("./res/water1.png")));
-            waterImages.add(ImageIO.read(new File("./res/water2.png")));
-            waterImages.add(ImageIO.read(new File("./res/water3.png")));
-            grassImages.add(ImageIO.read(new File("./res/grass.gif")));
-            grassImages.add(ImageIO.read(new File("./res/grass_mid.gif")));
-            grassImages.add(ImageIO.read(new File("./res/grass2.png")));
-            grassImages.add(ImageIO.read(new File("./res/grass_mid.gif")));
-            lighthouseImage = ImageIO.read(new File("./res/lighthouse_transparent.gif"));
-            aImage = ImageIO.read(new File("./res/a_transparent.gif"));
-            bImage = ImageIO.read(new File("./res/b_transparent.gif"));
-            shipRightImage = ImageIO.read(new File("./res/advanced_ship.gif"));
-            shipLeftImage = ImageIO.read(new File("./res/advanced_ship_left.gif"));
-            shipUpImage = ImageIO.read(new File("./res/advanced_ship_up.gif"));
-            shipDownImage = ImageIO.read(new File("./res/advanced_ship_down.gif"));
+            waterImages.add(ImageIO.read(new File("res/water_4.gif")));
+            waterImages.add(ImageIO.read(new File("res/water_3.gif")));
+            waterImages.add(ImageIO.read(new File("res/water_2.gif")));
+            waterImages.add(ImageIO.read(new File("res/water.gif")));
+//            waterImages.add(ImageIO.read(new File("./res/water.png")));
+//            waterImages.add(ImageIO.read(new File("./res/water1.png")));
+//            waterImages.add(ImageIO.read(new File("./res/water2.png")));
+//            waterImages.add(ImageIO.read(new File("./res/water3.png")));
+            grassImages.add(ImageIO.read(new File("res/grass.gif")));
+            grassImages.add(ImageIO.read(new File("res/grass_mid.gif")));
+            grassImages.add(ImageIO.read(new File("res/grass2.png")));
+            grassImages.add(ImageIO.read(new File("res/grass_mid.gif")));
+            lighthouseImage = ImageIO.read(new File("res/lighthouse_transparent.gif"));
+            aImage = ImageIO.read(new File("res/a_transparent.gif"));
+            bImage = ImageIO.read(new File("res/b_transparent.gif"));
+            shipRightImage = ImageIO.read(new File("res/advanced_ship.gif"));
+            shipLeftImage = ImageIO.read(new File("res/advanced_ship_left.gif"));
+            shipUpImage = ImageIO.read(new File("res/advanced_ship_up.gif"));
+            shipDownImage = ImageIO.read(new File("res/advanced_ship_down.gif"));
 
             groundImage = grassImages.get(0);
             waterImage = waterImages.get(0);
-            waterImage2 = waterImages.get(4);
+//            waterImage2 = waterImages.get(4);
             shipImage = shipRightImage;
         } catch (IOException e) {
             System.out.println("Image error");
+            System.exit(0);
         }
 
         map = new Map(fileName);
@@ -105,11 +106,7 @@ public class MainPanel extends JPanel implements ActionListener {
                 Image img = null;
                 switch (data.get(i).get(j)) {
                     case Map.WATER:
-                        if ((i + j) % 2 == 0) {
-                            img = waterImage;
-                        } else {
-                            img = waterImage2;
-                        }
+                        img = waterImage;
                         break;
                     case Map.GROUND:
                         img = groundImage;
@@ -140,8 +137,8 @@ public class MainPanel extends JPanel implements ActionListener {
     private int waterNum = 0;
     private int grassNum = 0;
     private double speed;
-    private final int waterSpeed = 6;
-    private final int grassSpeed = 10;
+    private final int waterSpeed = 12;
+    private final int grassSpeed = 18;
     private int k = 0;
     private int g = 0;
 
@@ -163,7 +160,6 @@ public class MainPanel extends JPanel implements ActionListener {
             if (waterNum == 4)
                 waterNum = 0;
             waterImage = waterImages.get(waterNum);
-            waterImage2 = waterImages.get(waterNum+4);
         }
 
         if (g == grassSpeed) {
